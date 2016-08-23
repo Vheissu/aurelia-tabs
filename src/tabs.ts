@@ -1,9 +1,13 @@
-import {bindable, inject, customElement} from 'aurelia-framework';
+import {inject} from 'aurelia-dependency-injection';
+import {bindable, customElement} from 'aurelia-templating';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 @customElement('tabs')
 @inject(Element, EventAggregator)
 export class Tabs {
+    private element: Element;
+    private ea: EventAggregator;
+
     @bindable tabs = null;
     @bindable inmodal = false;
 
@@ -20,8 +24,8 @@ export class Tabs {
         }
 
         this.element.addEventListener('click', e => {
-            if (e.target && e.target.tagName === 'A') {
-                let sectionId = e.target.getAttribute('href').replace('#', '');
+            if (e.target && (e.target as HTMLElement).tagName === 'A') {
+                let sectionId = (e.target as HTMLElement).getAttribute('href').replace('#', '');
                 let section = document.getElementById(`_tabbed-section-${sectionId}`);
 
                 if (section) {
@@ -32,7 +36,7 @@ export class Tabs {
                         selectedTabs[0].classList.remove('tabs__tab--selected');
                     }
 
-                    e.target.parentElement.classList.add('tabs__tab--selected');
+                    (e.target as HTMLElement).parentElement.classList.add('tabs__tab--selected');
                     document.getElementsByClassName('tab-sections__tab-section--active')[0].classList.remove('tab-sections__tab-section--active');
                     section.classList.add('tab-sections__tab-section--active');
                 }

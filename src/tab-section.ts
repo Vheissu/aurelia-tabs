@@ -1,8 +1,11 @@
-import {bindable, inject, customElement} from 'aurelia-framework';
+import {inject} from 'aurelia-dependency-injection';
+import {bindable, customElement} from 'aurelia-templating';
 
 @customElement('tab-section')
 @inject(Element)
 export class TabSection {
+    private element: Element;
+
     @bindable section = null;
     @bindable viewModel;
     @bindable viewContent;
