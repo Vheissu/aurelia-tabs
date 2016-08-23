@@ -5,3 +5,4 @@ export function configure(aurelia) {
         './tab-section'
     ]);
 }
+//# sourceMappingURL=index.js.map

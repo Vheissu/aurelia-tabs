@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,20 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var aurelia_dependency_injection_1 = require('aurelia-dependency-injection');
-var aurelia_templating_1 = require('aurelia-templating');
-var TabSections = (function () {
-    function TabSections(element) {
+import { inject } from 'aurelia-dependency-injection';
+import { customElement } from 'aurelia-templating';
+export let TabSections = class TabSections {
+    constructor(element) {
         this.element = element;
     }
-    TabSections.prototype.attached = function () {
-    };
-    TabSections = __decorate([
-        aurelia_templating_1.customElement('tab-sections'),
-        aurelia_dependency_injection_1.inject(Element), 
-        __metadata('design:paramtypes', [Object])
-    ], TabSections);
-    return TabSections;
-}());
-exports.TabSections = TabSections;
+    attached() {
+    }
+};
+TabSections = __decorate([
+    customElement('tab-sections'),
+    inject(Element), 
+    __metadata('design:paramtypes', [Object])
+], TabSections);
 //# sourceMappingURL=tab-sections.js.map

@@ -1,10 +1,10 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.configure = configure;
-
+"use strict";
 function configure(aurelia) {
-    aurelia.globalResources(['./tabs', './tab-sections', './tab-section']);
+    aurelia.globalResources([
+        './tabs',
+        './tab-sections',
+        './tab-section'
+    ]);
 }
+exports.configure = configure;
+//# sourceMappingURL=index.js.map

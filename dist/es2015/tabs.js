@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,29 +7,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var aurelia_dependency_injection_1 = require('aurelia-dependency-injection');
-var aurelia_templating_1 = require('aurelia-templating');
-var aurelia_event_aggregator_1 = require('aurelia-event-aggregator');
-var Tabs = (function () {
-    function Tabs(element, ea) {
+import { inject } from 'aurelia-dependency-injection';
+import { bindable, customElement } from 'aurelia-templating';
+import { EventAggregator } from 'aurelia-event-aggregator';
+export let Tabs = class Tabs {
+    constructor(element, ea) {
         this.tabs = null;
         this.inmodal = false;
         this.element = element;
         this.ea = ea;
     }
-    Tabs.prototype.attached = function () {
-        var _this = this;
-        var sections = document.getElementsByClassName('tab-sections__tab-section');
+    attached() {
+        let sections = document.getElementsByClassName('tab-sections__tab-section');
         if (this.inmodal) {
             this.element.classList.add('tabs--modal');
         }
-        this.element.addEventListener('click', function (e) {
+        this.element.addEventListener('click', e => {
             if (e.target && e.target.tagName === 'A') {
-                var sectionId = e.target.getAttribute('href').replace('#', '');
-                var section = document.getElementById("_tabbed-section-" + sectionId);
+                let sectionId = e.target.getAttribute('href').replace('#', '');
+                let section = document.getElementById(`_tabbed-section-${sectionId}`);
                 if (section) {
-                    _this.ea.publish("tab.change-" + sectionId, {});
-                    var selectedTabs = document.getElementsByClassName('tabs__tab--selected');
+                    this.ea.publish(`tab.change-${sectionId}`, {});
+                    let selectedTabs = document.getElementsByClassName('tabs__tab--selected');
                     if (selectedTabs[0]) {
                         selectedTabs[0].classList.remove('tabs__tab--selected');
                     }
@@ -41,21 +39,19 @@ var Tabs = (function () {
             }
             e.preventDefault();
         });
-    };
-    __decorate([
-        aurelia_templating_1.bindable, 
-        __metadata('design:type', Object)
-    ], Tabs.prototype, "tabs", void 0);
-    __decorate([
-        aurelia_templating_1.bindable, 
-        __metadata('design:type', Object)
-    ], Tabs.prototype, "inmodal", void 0);
-    Tabs = __decorate([
-        aurelia_templating_1.customElement('tabs'),
-        aurelia_dependency_injection_1.inject(Element, aurelia_event_aggregator_1.EventAggregator), 
-        __metadata('design:paramtypes', [Object, Object])
-    ], Tabs);
-    return Tabs;
-}());
-exports.Tabs = Tabs;
+    }
+};
+__decorate([
+    bindable, 
+    __metadata('design:type', Object)
+], Tabs.prototype, "tabs", void 0);
+__decorate([
+    bindable, 
+    __metadata('design:type', Object)
+], Tabs.prototype, "inmodal", void 0);
+Tabs = __decorate([
+    customElement('tabs'),
+    inject(Element, EventAggregator), 
+    __metadata('design:paramtypes', [Object, Object])
+], Tabs);
 //# sourceMappingURL=tabs.js.map

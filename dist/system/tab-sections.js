@@ -1,38 +1,41 @@
-System.register(['aurelia-framework'], function (_export) {
-    'use strict';
-
-    var bindable, inject, customElement, TabSections;
-
-    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
+System.register(['aurelia-dependency-injection', 'aurelia-templating'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var aurelia_dependency_injection_1, aurelia_templating_1;
+    var TabSections;
     return {
-        setters: [function (_aureliaFramework) {
-            bindable = _aureliaFramework.bindable;
-            inject = _aureliaFramework.inject;
-            customElement = _aureliaFramework.customElement;
-        }],
-        execute: function () {
+        setters:[
+            function (aurelia_dependency_injection_1_1) {
+                aurelia_dependency_injection_1 = aurelia_dependency_injection_1_1;
+            },
+            function (aurelia_templating_1_1) {
+                aurelia_templating_1 = aurelia_templating_1_1;
+            }],
+        execute: function() {
             TabSections = (function () {
                 function TabSections(element) {
-                    _classCallCheck(this, _TabSections);
-
                     this.element = element;
                 }
-
-                _createClass(TabSections, [{
-                    key: 'attached',
-                    value: function attached() {}
-                }]);
-
-                var _TabSections = TabSections;
-                TabSections = inject(Element)(TabSections) || TabSections;
-                TabSections = customElement('tab-sections')(TabSections) || TabSections;
+                TabSections.prototype.attached = function () {
+                };
+                TabSections = __decorate([
+                    aurelia_templating_1.customElement('tab-sections'),
+                    aurelia_dependency_injection_1.inject(Element), 
+                    __metadata('design:paramtypes', [Object])
+                ], TabSections);
                 return TabSections;
-            })();
-
-            _export('TabSections', TabSections);
+            }());
+            exports_1("TabSections", TabSections);
         }
-    };
+    }
 });
+//# sourceMappingURL=tab-sections.js.map

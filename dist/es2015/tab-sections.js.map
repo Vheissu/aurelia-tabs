@@ -1,0 +1,1 @@
+{"version":3,"file":"tab-sections.js","sourceRoot":"","sources":["../../src/tab-sections.ts"],"names":[],"mappings":";;;;;;;;;OAAO,EAAC,MAAM,EAAC,MAAM,8BAA8B;OAC5C,EAAW,aAAa,EAAC,MAAM,oBAAoB;AAI1D;IAGI,YAAY,OAAO;QACf,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;IAC3B,CAAC;IAED,QAAQ;IAER,CAAC;AACL,CAAC;AAZD;IAAC,aAAa,CAAC,cAAc,CAAC;IAC7B,MAAM,CAAC,OAAO,CAAC;;eAAA;AAWf"}

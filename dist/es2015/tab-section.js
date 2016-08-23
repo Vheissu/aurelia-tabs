@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,36 +7,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var aurelia_dependency_injection_1 = require('aurelia-dependency-injection');
-var aurelia_templating_1 = require('aurelia-templating');
-var TabSection = (function () {
-    function TabSection(element) {
+import { inject } from 'aurelia-dependency-injection';
+import { bindable, customElement } from 'aurelia-templating';
+export let TabSection = class TabSection {
+    constructor(element) {
         this.section = null;
         this.element = element;
     }
-    TabSection.prototype.attached = function () {
+    attached() {
         if (this.element.getAttribute('default-section')) {
             this.element.querySelector('.tab-sections__tab-section').classList.add('tab-sections__tab-section--active');
         }
-    };
-    __decorate([
-        aurelia_templating_1.bindable, 
-        __metadata('design:type', Object)
-    ], TabSection.prototype, "section", void 0);
-    __decorate([
-        aurelia_templating_1.bindable, 
-        __metadata('design:type', Object)
-    ], TabSection.prototype, "viewModel", void 0);
-    __decorate([
-        aurelia_templating_1.bindable, 
-        __metadata('design:type', Object)
-    ], TabSection.prototype, "viewContent", void 0);
-    TabSection = __decorate([
-        aurelia_templating_1.customElement('tab-section'),
-        aurelia_dependency_injection_1.inject(Element), 
-        __metadata('design:paramtypes', [Object])
-    ], TabSection);
-    return TabSection;
-}());
-exports.TabSection = TabSection;
+    }
+};
+__decorate([
+    bindable, 
+    __metadata('design:type', Object)
+], TabSection.prototype, "section", void 0);
+__decorate([
+    bindable, 
+    __metadata('design:type', Object)
+], TabSection.prototype, "viewModel", void 0);
+__decorate([
+    bindable, 
+    __metadata('design:type', Object)
+], TabSection.prototype, "viewContent", void 0);
+TabSection = __decorate([
+    customElement('tab-section'),
+    inject(Element), 
+    __metadata('design:paramtypes', [Object])
+], TabSection);
 //# sourceMappingURL=tab-section.js.map
