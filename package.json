@@ -15,50 +15,54 @@
   "license": "MIT",
   "author": "Dwayne Charrington <dwaynecharrington@gmail.com>",
   "main": "dist/commonjs/index.js",
+  "typings": "dist/commonjs/index.d.ts",
+  "scripts": {
+    "build": "gulp build",
+    "test": "./node_modules/.bin/karma start karma.conf.js --single-run"
+  },
   "repository": {
     "type": "git",
     "url": "http://github.com/Vheissu/aurelia-tabs"
   },
   "devDependencies": {
-    "aurelia-tools": "^0.1.3",
-    "conventional-changelog": "0.0.11",
-    "del": "^1.1.0",
-    "event-stream": "^3.3.1",
-    "gulp": "^3.8.10",
-    "gulp-babel": "^5.1.0",
-    "gulp-bump": "^0.1.11",
-    "gulp-jshint": "^1.9.0",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-yuidoc": "^0.1.2",
-    "jasmine-core": "^2.1.3",
-    "jshint-stylish": "^1.0.0",
-    "karma": "^0.12.28",
-    "karma-babel-preprocessor": "^5.2.1",
-    "karma-chrome-launcher": "^0.1.7",
-    "karma-coverage": "^0.3.1",
-    "karma-jasmine": "^0.3.5",
-    "karma-jspm": "^1.1.5",
-    "object.assign": "^1.0.3",
-    "require-dir": "^0.1.0",
-    "run-sequence": "^1.0.2",
-    "vinyl-paths": "^1.0.0",
-    "yargs": "^2.1.1"
+    "@types/jasmine": "^2.2.30",
+    "babel-core": "^6.13.2",
+    "babel-preset-es2015": "^6.13.2",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-typescript-preprocessor": "^0.2.1",
+    "node-sass": "^3.8.0",
+    "run-sequence": "^1.2.2",
+    "tslint": "^3.15.1",
+    "typescript": "^2.1.0-dev.20160823"
+  },
+  "dependencies": {
+    "aurelia-binding": "^1.0.1",
+    "aurelia-dependency-injection": "^1.0.0",
+    "aurelia-event-aggregator": "^1.0.0",
+    "aurelia-templating": "^1.0.0"
   },
   "jspm": {
-      "main": "index",
-      "format": "register",
-      "directories": {
-        "lib": "dist/system"
-      },
-      "devDependencies": {
-        "babel": "npm:babel-core@^5.6.4",
-        "babel-runtime": "npm:babel-runtime@^5.6.4",
-        "core-js": "npm:core-js@^0.9.4"
-      },
-      "overrides": {
-        "npm:core-js@0.9.18": {
-          "main": "client/shim.min"
-        }
-      }
+    "registry": "npm",
+    "main": "index",
+    "format": "cjs",
+    "directories": {
+      "dist": "dist/commonjs"
+    },
+    "dependencies": {
+      "aurelia-binding": "^1.0.1",
+      "aurelia-dependency-injection": "^1.0.0",
+      "aurelia-event-aggregator": "^1.0.0",
+      "aurelia-templating": "^1.0.0"
+    },
+    "devDependencies": {}
   }
 }
